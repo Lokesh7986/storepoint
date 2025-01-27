@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD CART</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo-svg.svg'%}">
+</head>
+<body>
+   
+        <center>
+            <h1>
+                <a href="home" style="text-decoration: none; color: green;">Home</a> | 
+                <a href="insert" style="text-decoration: none; color: green;">Insert</a>            
+            </h1>
+        </center>
+        <table border="2px" width="50%" align="center">
+            <tr>
+                <th>item Name</th>
+                <th>item Price</th>
+                <th>Actions</th>
+            </tr>
+            {% for record in records %}
+                <tr>
+                    <td>{{record.itemname}}</td>
+                    <td>{{record.itemprice}}</td>
+                    <td>
+                        <center>
+                            <a href="modify/{{record.id}}">Modify </a> 
+                            <a href="delete/{{record.id}}">Delete </a>
+                        </center>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD CART</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo-svg.svg'%}">
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #ad73e313;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #14ac090f;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 15px 10px 25px rgba(50, 2, 50, 90);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #f81212;
+        }
+
+        .login-container label {
+            font-size: 15px;
+            color: #0d0d0d;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 3px solid #d2bee1;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .button{
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+  {%include 'boostrap.html'%}
+    <div class="login-container">
+        <h1 style="text-align: center;">Login</h1>
+        <form action="login" method="POST">
+            {%csrf_token%}
+            <label for="username"><h6>Username</h6></label>
+            <input type="text" id="username" name="username"  class="form-control">
+
+            <label for="password"><h6>Password</h6></label>
+            <input type="password" id="password" name="password"  class="form-control">
+
+            <center><button type="submit" class="btn btn-primary" class="button"> Login</button></center><hr>
+            <p style="color: #f81212;"> If we Forgot-Password or user click here</p>
+            <a href="forgotpassword" style="text-decoration: none;"> Forgot-Password</a> 
+            |    <a href="regiester" style="text-decoration: none; color: #03010a;">New?-User</a>
+        </form>
+    </div>
+</body>
+</html>
